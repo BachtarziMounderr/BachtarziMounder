@@ -4,7 +4,32 @@ import { SiTensorflow, SiMongodb } from 'react-icons/si';
 
 const Projects = () => {
   const projects = [
+
     {
+      id: 2,
+      title: "Mini-shazam",
+      description: "A lightweight Shazam-like app built with Python (Flask) and HTML/CSS. Upload audio snippets (up to 10), match them against a local database, and get the song title & artist",
+      technologies: ["Python 3.10+", "Flask (backend & routing)", "HTML/CSS", "SQLite ", "Audio fingerprinting logic"],
+      icons: [FaReact, FaDatabase, SiMongodb],
+      githubUrl: "https://github.com/BachtarziMounderr/Mini-shazam",
+      liveUrl: "#",
+      image: "🎵",
+      featured: true
+    },
+    {
+      id: 3,
+      title: "XRP-price-prediction",
+      description: "This project applies Artificial Intelligence (AI) techniques to predict the future prices of the cryptocurrency **XRP** using a **Long Short-Term Memory (LSTM)** neural network.",
+      technologies: ["Python 3.10+", "TensorFlow / Keras ", "Scikit-learn", "Matplotlib / Seaborn ", "Joblib / Pickle"],
+      icons: [FaReact, FaPython, FaDatabase],
+      githubUrl: "https://github.com/BachtarziMounderr/XRP-price-prediction",
+      liveUrl: "#",
+      image: "📊",
+      featured: true
+      
+      
+    },
+        {
       id: 1,
       title: "Movie Recommendation System",
       description: "An intelligent movie recommendation engine built with machine learning algorithms. Uses collaborative filtering and content-based approaches to suggest personalized movie recommendations based on user preferences and viewing history.",
@@ -15,26 +40,6 @@ const Projects = () => {
       image: "🎬",
       featured: true
     },
-    {
-      id: 2,
-      title: "Mini-shazam",
-      description: "A lightweight Shazam-like app built with Python (Flask) and HTML/CSS. Upload audio snippets (up to 10), match them against a local database, and get the song title & artist",
-      technologies: ["Python 3.10+", "Flask (backend & routing)", "HTML/CSS", "SQLite ", "Audio fingerprinting logic"],
-      icons: [FaReact, FaDatabase, SiMongodb],
-      githubUrl: "https://github.com/BachtarziMounderr/Mini-shazam",
-      liveUrl: "#",
-      image: "🛒"
-    },
-    {
-      id: 3,
-      title: "XRP-price-prediction",
-      description: "This project applies Artificial Intelligence (AI) techniques to predict the future prices of the cryptocurrency **XRP** using a **Long Short-Term Memory (LSTM)** neural network.",
-      technologies: ["Python 3.10+", "TensorFlow / Keras ", "Scikit-learn", "Matplotlib / Seaborn ", "Joblib / Pickle"],
-      icons: [FaReact, FaPython, FaDatabase],
-      githubUrl: "https://github.com/BachtarziMounderr/XRP-price-prediction",
-      liveUrl: "#",
-      image: "📊"
-    }
   ];
 
   const handleProjectClick = (projectId) => {

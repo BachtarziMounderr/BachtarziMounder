@@ -78,13 +78,17 @@ const Contact = () => {
               ))}
             </div>
             
-            {/* Contact Form Placeholder */}
+            {/* Contact Form */}
             <div className="bg-white rounded-xl p-8 shadow-lg">
               <h3 className="text-2xl font-semibold text-gray-900 mb-6 text-center">
                 Send Me a Message
               </h3>
               
-              <div className="max-w-2xl mx-auto space-y-6">
+              <form 
+                action="https://formspree.io/f/meorgyby" 
+                method="POST"
+                className="max-w-2xl mx-auto space-y-6"
+              >
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -92,6 +96,8 @@ const Contact = () => {
                     </label>
                     <input
                       type="text"
+                      name="name"
+                      required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
                       placeholder="Your name"
                     />
@@ -103,6 +109,8 @@ const Contact = () => {
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
                       placeholder="your.email@example.com"
                     />
@@ -115,6 +123,7 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
+                    name="subject"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
                     placeholder="What's this about?"
                   />
@@ -125,18 +134,23 @@ const Contact = () => {
                     Message
                   </label>
                   <textarea
+                    name="message"
                     rows="4"
+                    required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none"
                     placeholder="Tell me more about your project or inquiry..."
                   ></textarea>
                 </div>
                 
                 <div className="text-center">
-                  <button className="btn-primary px-8 py-3">
+                  <button 
+                    type="submit" 
+                    className="btn-primary px-8 py-3"
+                  >
                     Send Message
                   </button>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
           
