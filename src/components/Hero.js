@@ -1,10 +1,16 @@
 import React from 'react';
 import { FaDownload, FaEye, FaArrowDown } from 'react-icons/fa';
+import CVFile from '../img/CV.pdf';
 
 const Hero = () => {
   const handleDownloadCV = () => {
-    // Placeholder for CV download functionality
-    alert('CV download functionality will be implemented here');
+    // Create a temporary anchor to trigger direct file download
+    const link = document.createElement('a');
+    link.href = CVFile;
+    link.download = 'Bachtarzi_Mounder_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const scrollToProjects = () => {

@@ -60,6 +60,17 @@ const Footer = () => {
             </button>
             <button
               onClick={() => {
+                const element = document.getElementById('certificates');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="text-gray-300 hover:text-primary-400 transition-colors duration-300"
+            >
+              Certificates
+            </button>
+            <button
+              onClick={() => {
                 const element = document.getElementById('contact');
                 if (element) {
                   element.scrollIntoView({ behavior: 'smooth' });
