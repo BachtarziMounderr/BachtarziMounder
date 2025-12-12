@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaGithub, FaExternalLinkAlt, FaPython, FaReact, FaDatabase } from 'react-icons/fa';
-import { SiTensorflow, SiMongodb } from 'react-icons/si';
+import { SiTensorflow, SiMongodb, SiPytorch } from 'react-icons/si';
 
 const Projects = () => {
   const projects = [
@@ -40,6 +40,18 @@ const Projects = () => {
       image: "🎬",
       featured: true
     },
+    {
+  id: 4,
+  title: "Advanced-Semantic-Segmentation-with-U-Net-and-SegNet",
+  description: "Advanced semantic image segmentation in PyTorch using U-Net and SegNet architectures with VGG and ResNet backbones. The project covers multi-class clothing segmentation and binary pet segmentation, featuring class remapping, strong data augmentation, attention mechanisms, and Dice/IoU-driven optimization on GPU.",
+  technologies: ["Python", "PyTorch", "U-Net", "VGG", "SegNet"],
+  icons: [FaPython, SiPytorch, FaDatabase],
+  githubUrl: "https://github.com/BachtarziMounderr/Advanced-Semantic-Segmentation-with-U-Net-and-SegNet",
+  liveUrl: "",
+  image: "🖼️",
+  featured: true
+}
+,
   ];
 
   const handleProjectClick = (projectId) => {
