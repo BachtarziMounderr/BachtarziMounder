@@ -57,37 +57,36 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="section-padding bg-gray-50">
+    <section id="skills" className="section-padding bg-white/[0.018] border-y border-white/[0.06] overflow-hidden">
       <div className="container-max">
         <div className="animate-slide-up">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Skills & Expertise
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto"></div>
-            <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
+          <div className="mb-20">
+            <div className="eyebrow">02 / Capabilities</div>
+            <h2 className="section-title">Skills & <span className="text-outline">Expertise</span></h2>
+            <p className="section-copy mt-8">
               A comprehensive toolkit for building intelligent solutions and modern web applications
             </p>
           </div>
           
-          {/* Skills Grid */}
-          <div className="space-y-12">
+          <div className="grid lg:grid-cols-3 gap-5">
             {skillCategories.map((category, categoryIndex) => (
-              <div key={categoryIndex} className="space-y-8">
-                <h3 className="text-2xl font-semibold text-gray-900 text-center">
+              <div key={categoryIndex} className="card p-6 md:p-8 group hover:border-white/20">
+                <div className="flex items-center justify-between mb-8">
+                  <h3 className="text-xl font-semibold text-white">
                   {category.title}
-                </h3>
+                  </h3>
+                  <span className="text-xs text-gray-600 font-mono">0{categoryIndex + 1}</span>
+                </div>
                 
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                <div className="grid grid-cols-2 gap-3">
                   {category.skills.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}
-                      className="group cursor-pointer flex flex-col items-center"
+                      className="cursor-pointer flex items-center gap-3 min-h-16 rounded-2xl border border-white/[0.07] bg-black/10 px-4 hover:bg-white/[0.05] hover:border-white/15 transition-all duration-300"
                       title={skill.name}
                     >
-                      <skill.icon className={`text-5xl ${skill.color} group-hover:scale-110 transition-transform duration-300`} />
-                      <p className="text-center text-sm font-medium text-gray-700 mt-3 group-hover:text-primary-600 transition-colors duration-300">
+                      <skill.icon className={`text-2xl ${skill.color} transition-transform duration-300`} />
+                      <p className="text-sm font-medium text-gray-300">
                         {skill.name}
                       </p>
                     </div>
@@ -97,13 +96,12 @@ const Skills = () => {
             ))}
           </div>
           
-          {/* Additional Info */}
-          <div className="mt-16 text-center">
-            <div className="bg-white rounded-xl p-8 shadow-lg max-w-3xl mx-auto">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+          <div className="mt-8">
+            <div className="rounded-3xl p-8 md:p-12 border border-[#c7ff6b]/20 bg-[#c7ff6b]/[0.035] grid md:grid-cols-[.65fr_1.35fr] gap-6">
+              <h3 className="text-2xl font-semibold text-white">
                 Always Learning & Growing
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-400 leading-8">
                 I'm constantly expanding my skill set and staying up-to-date with the latest technologies 
                 in data science, artificial intelligence, and web development. My passion for learning 
                 drives me to explore new tools and methodologies that can enhance my problem-solving capabilities.

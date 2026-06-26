@@ -60,112 +60,108 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="section-padding bg-white">
+    <section id="projects" className="section-padding">
       <div className="container-max">
         <div className="animate-slide-up">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Featured Projects
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto"></div>
-            <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
+          <div className="grid lg:grid-cols-[1fr_.7fr] gap-10 items-end mb-20">
+            <div>
+              <div className="eyebrow">05 / Selected Work</div>
+              <h2 className="section-title">Featured <span className="text-outline">Projects</span></h2>
+            </div>
+            <p className="section-copy lg:ml-auto">
               A showcase of my technical skills and problem-solving abilities through real-world projects
             </p>
           </div>
           
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project) => (
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.map((project, projectIndex) => (
               <div
                 key={project.id}
-                className={`project-card group cursor-pointer transition-all duration-500 ease-in-out transform hover:-translate-y-2 ${
-                  project.featured ? 'ring-2 ring-primary-500 ring-opacity-50' : ''
-                }`}
+                className={`project-card group cursor-pointer ${projectIndex === 0 ? 'md:col-span-2' : ''}`}
                 onClick={() => handleProjectClick(project.id)}
               >
-                {/* Project Image/Icon */}
-                <div className="text-6xl mb-4 text-center group-hover:scale-110 transition-transform duration-300">
-                  {project.image}
-                </div>
-                
-                {/* Project Title */}
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors duration-300">
-                  {project.title}
+                <div className="flex justify-between items-start mb-10">
+                  <span className="font-mono text-xs text-gray-500">PROJECT / 0{projectIndex + 1}</span>
                   {project.featured && (
-                    <span className="ml-2 text-xs bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 px-3 py-1 rounded-full font-medium">
+                    <span className="text-[10px] uppercase tracking-[.18em] border border-[#c7ff6b]/30 bg-[#c7ff6b]/10 text-[#c7ff6b] px-3 py-1.5 rounded-full">
                       Featured
                     </span>
                   )}
-                </h3>
-                
-                {/* Project Description */}
-                <p className="text-gray-600 mb-4 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                  {project.description}
-                </p>
-                
-                {/* Technologies Used */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-medium text-gray-700 mb-3 group-hover:text-primary-600 transition-colors duration-300">
-                    Technologies:
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="text-xs bg-gray-50 text-gray-600 px-3 py-1.5 rounded-lg border border-gray-200 group-hover:bg-primary-50 group-hover:text-primary-600 group-hover:border-primary-200 transition-all duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
                 </div>
+
+                <div className={projectIndex === 0 ? 'md:grid md:grid-cols-[1fr_.75fr] md:gap-14 md:items-end' : ''}>
+                  <div>
+                    <div className="text-6xl mb-6 opacity-90 group-hover:scale-110 group-hover:-rotate-3 origin-left transition-transform duration-500">
+                      {project.image}
+                    </div>
+                    <h3 className={`${projectIndex === 0 ? 'text-3xl md:text-5xl' : 'text-2xl'} font-semibold tracking-tight text-white mb-4 group-hover:text-[#66e3ff] transition-colors duration-300`}>
+                  {project.title}
+                    </h3>
                 
-                {/* Project Links */}
-                <div className="flex gap-3">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      window.open(project.githubUrl, '_blank');
-                    }}
-                    className="flex-1 bg-gray-900 hover:bg-gray-800 text-white text-sm font-medium py-2.5 px-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg transform group-hover:scale-105"
-                  >
-                    <FaGithub className="group-hover:scale-110 transition-transform duration-300" />
-                    GitHub
-                  </button>
+                    <p className="text-gray-400 mb-7 leading-7">
+                      {project.description}
+                    </p>
+                  </div>
+                
+                  <div>
+                    <div className="mb-7">
+                      <h4 className="text-[10px] uppercase tracking-[.18em] text-gray-500 mb-3">
+                        Technologies:
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech, index) => (
+                          <span key={index} className="text-xs text-gray-300 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.035]">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                
+                    <div className="flex gap-3">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(project.githubUrl, '_blank');
+                        }}
+                        className="flex-1 border border-white/10 hover:border-white/25 bg-white/[0.04] text-white text-sm font-medium py-3 px-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2"
+                      >
+                        <FaGithub /> GitHub
+                      </button>
                   
-                  {project.liveUrl && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        window.open(project.liveUrl, '_blank');
-                      }}
-                      className="flex-1 bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700 text-white text-sm font-medium py-2.5 px-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-lg transform group-hover:scale-105"
-                    >
-                      <FaExternalLinkAlt className="group-hover:scale-110 transition-transform duration-300" />
-                      Live Demo
-                    </button>
-                  )}
+                      {project.liveUrl && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open(project.liveUrl, '_blank');
+                          }}
+                          className="flex-1 bg-[#66e3ff] hover:bg-[#8beaff] text-gray-950 text-sm font-semibold py-3 px-4 rounded-full transition-all duration-300 flex items-center justify-center gap-2"
+                        >
+                          <FaExternalLinkAlt /> Live Demo
+                        </button>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
           
-          {/* Call to Action */}
-          <div className="text-center mt-16">
-            <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-2xl p-8 max-w-3xl mx-auto border border-primary-100 shadow-sm">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+          <div className="mt-8">
+            <div className="rounded-[2rem] p-8 md:p-12 border border-white/10 bg-white/[0.025] flex flex-col md:flex-row md:items-center justify-between gap-8">
+              <div>
+                <h3 className="text-2xl font-semibold text-white mb-3">
                 Want to See More?
-              </h3>
-              <p className="text-gray-600 mb-6">
+                </h3>
+                <p className="text-gray-400 max-w-2xl">
                 I'm constantly working on new projects and improving existing ones. 
                 Check out my GitHub profile for the latest updates and contributions.
-              </p>
+                </p>
+              </div>
               <button
                 onClick={() => window.open('https://github.com', '_blank')}
-                className="btn-primary flex items-center gap-2 mx-auto group"
+                className="btn-primary flex items-center justify-center gap-2 shrink-0"
               >
-                <FaGithub className="group-hover:scale-110 transition-transform duration-300" />
+                <FaGithub />
                 View All Projects on GitHub
               </button>
             </div>

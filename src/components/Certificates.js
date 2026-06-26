@@ -36,26 +36,25 @@ const Certificates = () => {
   }, []);
 
   return (
-    <section id="certificates" className="section-padding bg-gray-50">
+    <section id="certificates" className="section-padding bg-white/[0.018] border-y border-white/[0.06]">
       <div className="container-max">
         <div className="animate-slide-up">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Certificates
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary-500 to-accent-500 mx-auto"></div>
-            <p className="text-xl text-gray-600 mt-6 max-w-2xl mx-auto">
+          <div className="grid lg:grid-cols-[1fr_.7fr] gap-10 items-end mb-20">
+            <div>
+              <div className="eyebrow">04 / Credentials</div>
+              <h2 className="section-title">Certifi<span className="text-outline">cates</span></h2>
+            </div>
+            <p className="section-copy lg:ml-auto">
               A selection of my certifications and achievements
             </p>
           </div>
 
           {/* Certificates Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {certificates.map((cert, idx) => (
               <div
                 key={idx}
-                className="card p-3 cursor-zoom-in"
+                className={`group card p-3 cursor-zoom-in overflow-hidden ${idx % 2 === 1 ? 'lg:translate-y-12' : ''}`}
                 onClick={() => openModal(cert)}
                 role="button"
                 tabIndex={0}
@@ -65,18 +64,21 @@ const Certificates = () => {
                   <img
                     src={cert.src}
                     alt={cert.alt}
-                    className="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-105"
+                    className="w-full h-auto object-cover grayscale-[20%] transform transition-all duration-700 group-hover:scale-[1.035] group-hover:grayscale-0"
                     loading="lazy"
                   />
                 </div>
-                <p className="text-center text-sm text-gray-600 mt-3">{cert.alt}</p>
+                <div className="flex justify-between items-center px-2 py-3">
+                  <p className="text-sm text-gray-300">{cert.alt}</p>
+                  <span className="text-[10px] uppercase tracking-[.18em] text-[#c7ff6b]">View</span>
+                </div>
               </div>
             ))}
           </div>
 
           {isOpen && activeCert && (
             <div
-              className="fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4"
+              className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
               onClick={closeModal}
             >
               <div

@@ -9,97 +9,57 @@ const Footer = () => {
     });
   };
 
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container-max">
-        <div className="text-center">
-          {/* Main Footer Content */}
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold text-primary-400 mb-4">
+    <footer className="text-white px-5 sm:px-8 lg:px-12 pb-10">
+      <div className="container-max border-t border-white/10 pt-14">
+        <div className="grid md:grid-cols-2 gap-8 items-end mb-14">
+          <div>
+            <h3 className="text-4xl md:text-6xl font-bold tracking-[-.06em] text-white mb-4">
               Bachtarzi Mounder
             </h3>
-            <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-400 max-w-2xl leading-relaxed">
               Master's Student in Data Science & AI | Web Developer | Problem Solver
             </p>
           </div>
-          
-          {/* Quick Links */}
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
-            <button
-              onClick={() => {
-                const element = document.getElementById('about');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="text-gray-300 hover:text-primary-400 transition-colors duration-300"
-            >
-              About
-            </button>
-            <button
-              onClick={() => {
-                const element = document.getElementById('skills');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="text-gray-300 hover:text-primary-400 transition-colors duration-300"
-            >
-              Skills
-            </button>
-            <button
-              onClick={() => {
-                const element = document.getElementById('projects');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="text-gray-300 hover:text-primary-400 transition-colors duration-300"
-            >
-              Projects
-            </button>
-            <button
-              onClick={() => {
-                const element = document.getElementById('certificates');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="text-gray-300 hover:text-primary-400 transition-colors duration-300"
-            >
-              Certificates
-            </button>
-            <button
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="text-gray-300 hover:text-primary-400 transition-colors duration-300"
-            >
-              Contact
-            </button>
-          </div>
-          
-          {/* Copyright and Signature */}
-          <div className="border-t border-gray-700 pt-8">
-            <p className="text-gray-400 mb-4">
-              © {new Date().getFullYear()} Bachtarzi Mounder. All rights reserved.
-            </p>
-            <p className="text-gray-400 flex items-center justify-center gap-2">
-              Built with <FaHeart className="text-red-500 animate-pulse" /> by Bachtarzi Mounder
-            </p>
+          <div className="md:text-right text-[10px] uppercase tracking-[.25em] text-[#c7ff6b]">
+            Available for meaningful work
           </div>
         </div>
-        
-        {/* Scroll to Top Button */}
+
+        <div className="flex flex-wrap gap-x-7 gap-y-3 mb-10">
+          {['about', 'skills', 'experience', 'certificates', 'projects', 'contact'].map((item) => (
+            <button
+              key={item}
+              onClick={() => scrollToSection(item)}
+              className="text-sm text-gray-400 hover:text-white transition-colors duration-300 capitalize"
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between gap-4">
+          <p className="text-xs text-gray-600">
+            Â© {new Date().getFullYear()} Bachtarzi Mounder. All rights reserved.
+          </p>
+          <p className="text-xs text-gray-500 flex items-center gap-2">
+            Built with <FaHeart className="text-red-500 animate-pulse" /> by Bachtarzi Mounder
+          </p>
+        </div>
+
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-primary-600 hover:bg-primary-700 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
+          className="fixed z-40 bottom-6 right-6 w-11 h-11 border border-white/15 bg-[#0d1119]/80 backdrop-blur-xl hover:border-[#c7ff6b]/60 hover:text-[#c7ff6b] text-white rounded-full shadow-2xl transition-all duration-300 flex items-center justify-center"
           title="Scroll to top"
         >
-          <FaArrowUp size={20} />
+          <FaArrowUp size={15} />
         </button>
       </div>
     </footer>
